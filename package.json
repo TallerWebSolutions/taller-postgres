@@ -1,0 +1,67 @@
+{
+  "name": "taller-postgres",
+  "version": "1.0.0",
+  "description": "Sample with Webpack.",
+  "main": "dist/taller-postgres.js",
+  "scripts": {
+    "build": "rm -Rf dist/ && webpack --config webpack.prod.js",
+    "test": "NODE_ENV=test nyc mocha-webpack --full-trace --exit --growl --colors --require source-map-support/register --webpack-config webpack.test.js \"test/**/*.test.js\""
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false,
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "exclude": [
+      ".tmp",
+      "test",
+      "coverage",
+      "node_modules"
+    ]
+  },
+  "author": "Luiz Amorim <luiz.amorim@taller.net.br> (http://taller.net.br)",
+  "license": "The Unilicense",
+  "peerDependencies": {
+    "pg": "6.x.x"
+  },
+  "dependencies": {
+    "pg": "^6.x.x"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "cpf_cnpj": "^0.1.1",
+    "eslint": "^3.7.1",
+    "eslint-config-standard": "^6.2.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "faker": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.0",
+    "mocha-as-promised": "^2.0.0",
+    "mocha-webpack": "^0.6.0",
+    "moment": "^2.15.1",
+    "nyc": "^8.3.0",
+    "source-map-support": "^0.4.3",
+    "webpack": "^1.13.2",
+    "webpack-node-externals": "^1.4.3"
+  },
+  "engines": {
+    "node": "~6.x.x",
+    "npm": "~3.x.x"
+  }
+}

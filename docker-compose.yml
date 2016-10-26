@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  source:
+    image: busybox
+    container_name: sample-src
+    volumes:
+      - $PWD:/taller/app
+
+  database:
+    build:
+      context: ./docker
+      dockerfile: DockerfileDB
+    hostname: "database"
+    container_name: sample-db
+    environment:
+      - POSTGRES_DB=taller
+      - POSTGRES_USER=taller
+      - POSTGRES_PASSWORD=RE7531PH
+
+  development:
+    image: taller
+    build: ./docker/
+    hostname: "dev"
+    working_dir: /taller/app
+    environment:
+      - NODE_ENV=development
+    links:
+      - database
+    volumes_from:
+      - source
+    volumes:
+      - $HOME/.ssh:/taller/.ssh
+      - $HOME/.gitconfig:/taller/.gitconfig
