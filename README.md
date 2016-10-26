@@ -20,9 +20,9 @@ Make tasks of environment
 
 First steps after environment builded
 ```sh
-taller:~/app$ npm install
-taller:~/app$ npm test
-taller:~/app$ npm run build
+taller:~/app(master)$ npm install
+taller:~/app(master)$ npm test
+taller:~/app(master)$ npm run build
 ```
 
 
